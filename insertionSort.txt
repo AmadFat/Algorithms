@@ -1,0 +1,1 @@
+"""Maintain a sorted list by find a place for the insertion."""

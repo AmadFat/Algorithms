@@ -1,0 +1,17 @@
+"""Find a "max" one, reduce to the last."""
+
+def prefix_max (A, i):
+    """Return index of maximum in A[:i + 1]"""
+    if i > 0:
+        j = prefix_max(A, i - 1)
+        if A[i] < A[j]:
+            return j
+    return i
+
+def selection_sort (A, i = None):
+    """Sort A[:i + 1]"""
+    if i is None: i = len(A) - 1
+    if i > 0:
+        j = prefix_max(A, i)
+        swap(A[i], A[j])
+        selection_sort(A, i - 1)
